@@ -1,0 +1,48 @@
++*In[5]:*+
+[source, ipython3]
+----
+import nltk
+from nltk.chat.util import Chat, reflections
+
+# Define patterns and responses
+patterns = [
+    (r'hi|hello|hey', ['Hello!', 'Hi there!', 'Hey!']),
+    (r'how are you?', ["I'm doing well, thank you!", "I'm great, thanks for asking!"]),
+    (r'what is your name?', ["I'm a chatbot. You can call me Chatbot.", "I'm Chatbot, nice to meet you!"]),
+    (r'quit', ['Bye!', 'Goodbye!', 'Take care!']),
+]
+
+# Create a Chatbot
+chatbot = Chat(patterns, reflections)
+
+# Start chatting
+print("Welcome to Chatbot. Type 'quit' to exit.")
+while True:
+    user_input = input("You: ")
+    response = chatbot.respond(user_input)
+    print("Chatbot:", response)
+    if user_input.lower() == 'quit':
+        break
+
+----
+
+
++*Out[5]:*+
+----
+Welcome to Chatbot. Type 'quit' to exit.
+You: hey
+Chatbot: Hi there!
+You: how are you
+Chatbot: I'm doing well, thank you!
+You: what is your name?
+Chatbot: I'm Chatbot, nice to meet you!
+You: quit
+Chatbot: Goodbye!
+----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+
+----
